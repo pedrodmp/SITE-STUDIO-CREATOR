@@ -222,6 +222,19 @@
   .price li{font-size:13.5px;color:var(--text-soft);display:flex;gap:9px;align-items:flex-start;}
   .price li::before{content:"→";color:var(--teal);flex-shrink:0;}
   .price .btn{width:100%;}
+  .price-group{margin-top:46px;}
+  .price-group:first-of-type{margin-top:0;}
+  .price-group-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:18px;padding:0 2px;}
+  .price-group-head p{max-width:520px;color:var(--text-soft);font-size:13.5px;text-align:right;}
+  .price-grid{display:grid;gap:18px;}
+  .price-grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .price-grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .compact-price{min-height:320px!important;}
+  @media (max-width:920px){
+    .price-grid-2,.price-grid-3{grid-template-columns:1fr;}
+    .price-group-head{align-items:flex-start;flex-direction:column;gap:8px;}
+    .price-group-head p{text-align:left;}
+  }
 
   /* fundadores */
   .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:820px;margin:0 auto;}
@@ -721,6 +734,10 @@
     .marquee{transform:none;}
   }
 
+
+/* FIX: grupos de preços devem permanecer visíveis; a animação reveal é aplicada somente aos cards internos. */
+.price-group{opacity:1!important;transform:none!important;}
+
 </style>
 
 <style id="cinematic-reference-v3">
@@ -1005,43 +1022,89 @@ footer{border-top:0!important;padding-top:72px!important;}footer .f-top{border-t
 <section id="precos">
   <div class="wrap">
     <div class="s-head">
-      <span class="eyebrow">Preços</span>
-      <h2>Pacotes fechados, sem letra miúda.</h2>
-      <p>Valores pensados pra pequenos negócios de Muriaé e região.</p>
+      <span class="eyebrow">Base de valores</span>
+      <h2>Escolha a solução certa para o seu projeto.</h2>
+      <p>Valores organizados por serviço para você entender exatamente onde investir.</p>
     </div>
-    <div class="grid4">
-      <div class="glass price">
-        <h3>Start</h3>
-        <p class="d">Pra quem precisa da marca pronta pra começar.</p>
-        <div class="v">R$160–200</div>
-        <div class="rev">2 revisões inclusas</div>
-        <ul><li>Logo em vários formatos</li><li>Paleta de cores</li><li>Tipografia definida</li></ul>
-        <a href="#contato" class="btn ghost">Quero esse</a>
+
+    <div class="price-group">
+      <div class="price-group-head">
+        <span class="eyebrow">01 — Websites</span>
+        <p>Projetos digitais pensados para apresentar, posicionar e converter.</p>
       </div>
-      <div class="glass price hot">
-        <span class="tag">Mais pedido</span>
-        <h3>Presença Digital</h3>
-        <p class="d">Marca completa + landing page pra converter.</p>
-        <div class="v">R$380–500</div>
-        <div class="rev">3 revisões inclusas</div>
-        <ul><li>Tudo do Start</li><li>Landing page responsiva</li><li>Orientação de hospedagem</li></ul>
-        <a href="#contato" class="btn">Quero esse</a>
+      <div class="price-grid price-grid-2">
+        <div class="glass price hot">
+          <span class="tag">Conversão</span>
+          <h3>Landing Page</h3>
+          <p class="d">Página estratégica para campanhas, captação de leads e apresentação de um serviço específico.</p>
+          <div class="v">R$ 1.490,00</div>
+          <div class="rev">PROJETO DE LANDING PAGE</div>
+          <ul><li>Design responsivo</li><li>Estrutura focada em conversão</li><li>Experiência UI/UX</li></ul>
+          <a href="#contato" class="btn">Quero uma landing page</a>
+        </div>
+        <div class="glass price">
+          <h3>Site Completo</h3>
+          <p class="d">Presença digital mais robusta para empresas que precisam apresentar diferentes áreas, serviços e conteúdos.</p>
+          <div class="v">R$ 2.790,00</div>
+          <div class="rev">PROJETO DE SITE COMPLETO</div>
+          <ul><li>Estrutura multipágina</li><li>Design responsivo</li><li>Experiência UI/UX</li></ul>
+          <a href="#contato" class="btn ghost">Quero um site completo</a>
+        </div>
       </div>
-      <div class="glass price">
-        <h3>Completo</h3>
-        <p class="d">Marca + site institucional multi-página.</p>
-        <div class="v">R$700–1.000</div>
-        <div class="rev">4 revisões inclusas</div>
-        <ul><li>Tudo do Presença Digital</li><li>Site com várias páginas</li><li>Página de contato integrada</li></ul>
-        <a href="#contato" class="btn ghost">Quero esse</a>
+    </div>
+
+    <div class="price-group">
+      <div class="price-group-head">
+        <span class="eyebrow">02 — Hospedagem</span>
+        <p>Três níveis de hospedagem para diferentes necessidades de acompanhamento.</p>
       </div>
-      <div class="glass price">
-        <h3>Completo Plus</h3>
-        <p class="d">O pacote completo com suporte estendido.</p>
-        <div class="v">R$950–1.300</div>
-        <div class="rev">5 revisões inclusas</div>
-        <ul><li>Tudo do Completo</li><li>30 dias de ajustes</li><li>Kit de posts pra redes</li></ul>
-        <a href="#contato" class="btn ghost">Quero esse</a>
+      <div class="price-grid price-grid-3">
+        <div class="glass price compact-price">
+          <h3>Hosp. Básica</h3>
+          <p class="d">A opção essencial para manter seu projeto publicado.</p>
+          <div class="v">R$ 39,00</div>
+          <div class="rev">HOSPEDAGEM BÁSICA</div>
+          <a href="#contato" class="btn ghost">Escolher básica</a>
+        </div>
+        <div class="glass price hot compact-price">
+          <span class="tag">Equilíbrio</span>
+          <h3>Hosp. Cuidado</h3>
+          <p class="d">Para quem quer uma camada maior de acompanhamento.</p>
+          <div class="v">R$ 69,00</div>
+          <div class="rev">HOSPEDAGEM CUIDADO</div>
+          <a href="#contato" class="btn">Escolher cuidado</a>
+        </div>
+        <div class="glass price compact-price">
+          <h3>Hosp. Gestão</h3>
+          <p class="d">Plano mais completo da linha de hospedagem.</p>
+          <div class="v">R$ 119,00</div>
+          <div class="rev">HOSPEDAGEM GESTÃO</div>
+          <a href="#contato" class="btn ghost">Escolher gestão</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-group">
+      <div class="price-group-head">
+        <span class="eyebrow">03 — Identidade Visual</span>
+        <p>Construção visual para deixar a marca mais coerente, reconhecível e profissional.</p>
+      </div>
+      <div class="price-grid price-grid-2">
+        <div class="glass price">
+          <h3>IV Base</h3>
+          <p class="d">Base visual para negócios que precisam começar com consistência.</p>
+          <div class="v">R$ 750,00</div>
+          <div class="rev">IDENTIDADE VISUAL BASE</div>
+          <a href="#contato" class="btn ghost">Quero a IV Base</a>
+        </div>
+        <div class="glass price hot">
+          <span class="tag">Mais completa</span>
+          <h3>IV Completa</h3>
+          <p class="d">Construção de uma identidade visual mais ampla para uma presença de marca consistente.</p>
+          <div class="v">R$ 1.350,00</div>
+          <div class="rev">IDENTIDADE VISUAL COMPLETA</div>
+          <a href="#contato" class="btn">Quero a IV Completa</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1092,7 +1155,7 @@ footer{border-top:0!important;padding-top:72px!important;}footer .f-top{border-t
       </div>
       <div class="glass tst">
         <div class="st">★★★★★</div>
-        <p>"Fizemos o pacote Completo e o resultado impressionou. Cores, tipografia, site — tudo com a mesma cara. Já indiquei pra duas amigas."</p>
+        <p>"Fizemos o projeto completo e o resultado impressionou. Cores, tipografia, site — tudo com a mesma cara. Já indiquei pra duas amigas."</p>
         <div class="who"><span class="a">LM</span><div><strong>Larissa Moraes</strong><span>Studio de estética</span></div></div>
       </div>
     </div>
@@ -1107,9 +1170,9 @@ footer{border-top:0!important;padding-top:72px!important;}footer .f-top{border-t
       <h2>Perguntas frequentes.</h2>
     </div>
     <div class="faq">
-      <details class="glass"><summary>Quanto tempo leva um projeto?</summary><p>Depende do pacote. Uma logo sozinha sai em 5–7 dias. O Presença Digital leva de 2 a 3 semanas. O Completo pode chegar a 4 semanas, sempre combinado antes de começar.</p></details>
+      <details class="glass"><summary>Quanto tempo leva um projeto?</summary><p>O prazo varia conforme o tipo e o escopo do projeto. Landing page, site completo e identidade visual recebem um cronograma definido na proposta antes do início.</p></details>
       <details class="glass"><summary>Como funciona o pagamento?</summary><p>50% de entrada pra iniciar e 50% na entrega final, antes de passarmos os arquivos definitivos. Protege os dois lados e é o padrão do mercado.</p></details>
-      <details class="glass"><summary>E se eu não gostar do resultado?</summary><p>Cada pacote já inclui de 2 a 5 revisões. Se quiser mais ajustes depois disso, cobramos R$30 por rodada extra.</p></details>
+      <details class="glass"><summary>E se eu precisar de ajustes?</summary><p>As etapas de revisão e os ajustes incluídos são definidos na proposta de acordo com o serviço contratado, para que o escopo fique claro antes do início.</p></details>
       <details class="glass"><summary>Vocês atendem só Muriaé?</summary><p>Atendemos Muriaé e toda a Zona da Mata (Carangola, Manhuaçu, Cataguases e vizinhas), além de clientes de outras cidades — a comunicação é online.</p></details>
       <details class="glass"><summary>Os arquivos ficam comigo?</summary><p>Sim, 100%. Você recebe a logo em todos os formatos, o guia de cores e o site pronto pra publicar. É tudo seu, sem amarração.</p></details>
     </div>
@@ -1315,11 +1378,11 @@ var chatIniciado = false;
 
 var RESPOSTAS = {
   precos: {
-    txt: 'Nossos pacotes:<br><br><strong>Start</strong> — R$160 a 200<br>Logo + identidade básica<br><br><strong>Presença Digital</strong> — R$380 a 500<br>Marca completa + landing page<br><br><strong>Completo</strong> — R$700 a 1.000<br>Marca + site multi-página<br><br><strong>Completo Plus</strong> — R$950 a 1.300<br>Tudo + 30 dias de suporte<br><br>O valor exato depende do escopo — a gente fecha isso no orçamento.',
+    txt: 'Nossa base de valores:<br><br><strong>Landing Page</strong> — R$ 1.490,00<br><strong>Site Completo</strong> — R$ 2.790,00<br><br><strong>Hosp. Básica</strong> — R$ 39,00<br><strong>Hosp. Cuidado</strong> — R$ 69,00<br><strong>Hosp. Gestão</strong> — R$ 119,00<br><br><strong>IV Base</strong> — R$ 750,00<br><strong>IV Completa</strong> — R$ 1.350,00<br><br>Se quiser, eu te direciono para o WhatsApp para entender qual opção faz mais sentido para o seu projeto.',
     ops:['Quanto tempo leva?','Como é o pagamento?','Falar com humano']
   },
   prazo: {
-    txt: 'Depende do que você contratar:<br><br>• <strong>Logo sozinha:</strong> 5 a 7 dias<br>• <strong>Presença Digital:</strong> 2 a 3 semanas<br>• <strong>Completo:</strong> até 4 semanas<br><br>O prazo sempre vai fechado na proposta, antes de começar.',
+    txt: 'O prazo depende do escopo do serviço contratado. Landing page, site completo e identidade visual recebem um cronograma definido na proposta antes do início do projeto.',
     ops:['Ver os preços','Como é o pagamento?','Falar com humano']
   },
   pagamento: {
@@ -1327,11 +1390,11 @@ var RESPOSTAS = {
     ops:['Ver os preços','E as revisões?','Falar com humano']
   },
   revisoes: {
-    txt: 'Cada pacote já inclui revisões:<br><br>• Start: <strong>2 revisões</strong><br>• Presença Digital: <strong>3 revisões</strong><br>• Completo: <strong>4 revisões</strong><br>• Completo Plus: <strong>5 revisões</strong><br><br>Se precisar de mais depois disso, é R$30 por rodada extra.',
+    txt: 'As revisões e ajustes incluídos são definidos na proposta conforme o serviço contratado. Assim você já começa sabendo exatamente o que está dentro do escopo.',
     ops:['Ver os preços','Quanto tempo leva?','Falar com humano']
   },
   servicos: {
-    txt: 'Fazemos três coisas, que funcionam melhor juntas:<br><br>• <strong>Logo</strong> — símbolo em todos os formatos<br>• <strong>Identidade visual</strong> — paleta, tipografia e regras de uso<br>• <strong>Sites</strong> — landing page ou institucional, responsivo<br><br>Dá pra contratar avulso ou fechar o combo com desconto.',
+    txt: 'Trabalhamos com:<br><br>• <strong>Landing Page</strong><br>• <strong>Site Completo</strong><br>• <strong>Identidade Visual</strong> — Base ou Completa<br>• <strong>Hospedagem</strong> — Básica, Cuidado ou Gestão<br><br>Você pode contratar de acordo com a necessidade do seu projeto.',
     ops:['Ver os preços','Quanto tempo leva?','Falar com humano']
   },
   regiao: {
